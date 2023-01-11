@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: false
+- name: "Enable OSPF for Underlay"
+  nxos_feature:
+    feature: ospf
+    state: enabled
+  when: underlay_protocol == "ospf"
+  tags:
+    - feature

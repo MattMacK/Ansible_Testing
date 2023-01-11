@@ -1,0 +1,5 @@
+---
+- name: run show version on remote devices
+  hosts: all
+  nxos_command:
+    commands: show version

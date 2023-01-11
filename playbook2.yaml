@@ -1,0 +1,14 @@
+---
+- name: GET Running Config on all NXOS devices
+  hosts: all
+  connection: network_cli
+  tasks:
+
+    - name: Getting Running Config
+      nxos_command:
+        commands: show run
+      register: run
+
+    - copy:
+        content: "{{ run.stdout_lines}}"
+        dest: state/{{ inventory_hostname }}_run.txt

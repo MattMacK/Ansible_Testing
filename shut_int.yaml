@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: false
+
+  tasks:
+  - name: "Shutdown Interface"
+    nxos_command:
+      commands:
+      - conf t
+      - interface Ethernet1/2
+      - shutdown
